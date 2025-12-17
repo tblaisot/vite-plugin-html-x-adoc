@@ -1,0 +1,42 @@
+{
+  "name": "@tblaisot/vite-plugin-html-x-adoc",
+  "version": "0.1.0",
+  "description": "A Vite plugin that processes AsciiDoc files and injects them into HTML files with full Hot Module Replacement (HMR) support",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "asciidoc",
+    "asciidoctor",
+    "html",
+    "hmr",
+    "hot-module-replacement"
+  ],
+  "author": "Thomas Blaisot",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tblaisot/vite-plugin-html-x-adoc.git"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "dependencies": {
+    "@asciidoctor/core": "^3.0.4",
+    "node-html-parser": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
