@@ -1,9 +1,10 @@
-import asciidoctor from '@asciidoctor/core';
+import asciidoctorFactory from '@asciidoctor/core';
 import {resolve} from "node:path";
+import * as includePreprocessor from "./asciidoctor/include-preprocessor.js"
 
+const asciidoctor = asciidoctorFactory();
 
 export function createDefaultAsciidocConverter() {
-    const asciidoctorInstance = asciidoctor();
 
     return ({rootDir, baseDir, toDir}) => {
         const base_dir = resolve(rootDir, baseDir);
@@ -22,8 +23,12 @@ export function createDefaultAsciidocConverter() {
         };
 
         return (filename, content) => {
+
+            const registry = asciidoctor.Extensions.create();
+            includePreprocessor.register(registry);
+            OPTIONS.extension_registry = registry;
             // If content is provided, use load() instead of loadFile()
-            const adoc = asciidoctorInstance.load(content, OPTIONS);
+            const adoc = asciidoctor.load(content, OPTIONS);
             return {
                 html: adoc.convert(),
                 document: adoc
