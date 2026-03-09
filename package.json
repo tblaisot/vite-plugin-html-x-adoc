@@ -1,6 +1,6 @@
 {
   "name": "@tblaisot/vite-plugin-html-x-adoc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A Vite plugin that processes AsciiDoc files and injects them into HTML files with full Hot Module Replacement (HMR) support",
   "type": "module",
   "main": "./src/index.js",
